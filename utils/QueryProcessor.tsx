@@ -15,6 +15,15 @@ export default function QueryProcessor(query: string): string {
     return "jschraml";
   }
 
+  // Addition query
+  if (query.toLowerCase().includes("plus")) {
+    const numbers = query.match(/-?\d+(\.\d+)?/g)?.map(Number) ?? [];
+    if (numbers.length >= 2) {
+      const sum = numbers.reduce((acc, n) => acc + n, 0);
+      return String(sum);
+    }
+  }
+
   // Largest number query
   if (query.toLowerCase().includes("numbers") && query.toLowerCase().includes("largest")) {
     const numbers = query.match(/-?\d+(\.\d+)?/g)?.map(Number) ?? [];

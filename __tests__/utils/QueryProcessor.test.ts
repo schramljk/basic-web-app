@@ -37,4 +37,10 @@ describe("QueryProcessor", () => {
         const response: string = QueryProcessor(query);
         expect(response).toBe("74");
     })
+
+    test('should add numbers with "plus"', () => {
+        const query = "What is 34 plus 3?";
+        const response: string = QueryProcessor(query);
+        expect(response).toBe("37");
+    })
 });
