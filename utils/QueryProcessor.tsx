@@ -15,5 +15,13 @@ export default function QueryProcessor(query: string): string {
     return "jschraml";
   }
 
+  // Largest number query
+  if (query.toLowerCase().includes("numbers") && query.toLowerCase().includes("largest")) {
+    const numbers = query.match(/-?\d+(\.\d+)?/g)?.map(Number) ?? [];
+    if (numbers.length > 0) {
+      return String(Math.max(...numbers));
+    }
+  }
+
   return "";
 }
